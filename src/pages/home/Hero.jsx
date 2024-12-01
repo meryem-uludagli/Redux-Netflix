@@ -4,6 +4,7 @@ import Error from "../../components/error";
 import Loader from "../../components/loader";
 import { Link } from "react-router-dom";
 import { baseImgUrl } from "../../constants";
+import SaveButton from "../../components/savebtn";
 
 const Hero = () => {
   const [movie, setMovies] = useState(null);
@@ -43,9 +44,7 @@ const Hero = () => {
             Watch Film
           </Link>
 
-          <button className="py-2 px-4 bg-blue-600 rounded transition hover:bg-blue-700 ">
-            Save
-          </button>
+          <SaveButton movie={movie} />
         </div>
       </div>
 
