@@ -4,7 +4,8 @@ import { GoBookmarkSlashFill } from "react-icons/go";
 import { MdBookmarkAdd } from "react-icons/md";
 
 const SaveButton = ({ movie }) => {
-  const { list } = useSelector((store) => store);
+  const list = useSelector((state) => state.list);
+
   const dispatch = useDispatch();
   const isAdded = list.find((item) => item.id === movie.id);
   const handleClick = () => {

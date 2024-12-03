@@ -3,8 +3,9 @@ import ActionTypes from "../reducers/actionTypes";
 
 export const getWatchList = () => (dispatch) => {
   dispatch({ type: ActionTypes.LIST_LOADING });
+
   api
-    .get(`/account/21550989/watchlist/movies?language=en`)
+    .get(`/account/21550989/watchlist/movies?language=tr`)
     .then((res) =>
       dispatch({ type: ActionTypes.LIST_SUCCESS, payload: res.data.results })
     )
@@ -12,11 +13,12 @@ export const getWatchList = () => (dispatch) => {
       dispatch({ type: ActionTypes.LIST_ERROR, payload: err.message })
     );
 };
+
 export const toggleList = (movie, isAdd) => (dispatch) => {
   const body = {
     media_type: "movie",
-    media_id: "movie.id",
-    watchlist: "isAdd",
+    media_id: movie.id,
+    watchlist: isAdd,
   };
 
   api
@@ -26,5 +28,5 @@ export const toggleList = (movie, isAdd) => (dispatch) => {
         ? dispatch({ type: ActionTypes.ADD_TO_LIST, payload: movie })
         : dispatch({ type: ActionTypes.REMOVE_FROM_LIST, payload: movie });
     })
-    .catch((err) => err);
+    .catch((err) => console.log(err));
 };

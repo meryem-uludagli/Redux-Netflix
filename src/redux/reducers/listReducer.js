@@ -1,5 +1,4 @@
-import { error } from "@splidejs/splide/src/js/utils";
-import ActionTypes from "./actionTypes";
+import ActionTypes from "../reducers/actionTypes";
 
 const initialState = {
   list: [],
@@ -20,14 +19,17 @@ const listReducer = (state = initialState, { type, payload }) => {
 
     case ActionTypes.ADD_TO_LIST:
       const updated = state.list.concat(payload);
+
       return { ...state, list: updated };
 
     case ActionTypes.REMOVE_FROM_LIST:
       const filtred = state.list.filter((i) => i.id !== payload.id);
+
       return { ...state, list: filtred };
 
     default:
       return state;
   }
 };
+
 export default listReducer;

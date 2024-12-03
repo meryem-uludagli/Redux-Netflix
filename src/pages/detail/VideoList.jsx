@@ -1,6 +1,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Video } from "@splidejs/splide-extension-video";
 import ReactPlayer from "react-player";
+import "@splidejs/splide-extension-video/dist/css/splide-extension-video.min.css";
 
 const VideoList = ({ videos }) => {
   return (
@@ -16,7 +17,7 @@ const VideoList = ({ videos }) => {
                   controls
                   width={"100%"}
                   height={"100%"}
-                  url={`http://www.youtube.com/watch?v=${video?.key}`}
+                  url={`https://www.youtube.com/watch?v=${video?.key}`}
                 />
               </div>
             </SplideSlide>

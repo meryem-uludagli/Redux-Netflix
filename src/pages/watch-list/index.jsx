@@ -9,6 +9,7 @@ import { toggleList } from "../../redux/actions";
 const WatchList = () => {
   const dispatch = useDispatch();
   const { isLoading, error, list } = useSelector((store) => store);
+
   const handleDelete = (movie) => {
     dispatch(toggleList(movie, false));
   };
@@ -19,7 +20,7 @@ const WatchList = () => {
 
   return (
     <div>
-      <h1 className="text-2xl md:text-3xl font-semibold">İzleme Listesi</h1>
+      <h1 className="text-2xl md:text-3xl font-semibold">Watch List</h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 my-10">
         {list.map((movie) => (
